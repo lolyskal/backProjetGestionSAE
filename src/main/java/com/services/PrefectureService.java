@@ -8,12 +8,12 @@ public interface PrefectureService {
 	
 	List<PrefectureDto> findAll();
 	
-	PrefectureDto findById(String code);
+	PrefectureDto findById(Long id);
 	
 	PrefectureDto save(PrefectureDto prefectureDto);
 	
-	PrefectureDto update(String code , PrefectureDto audienceDto);
+	PrefectureDto update(Long id , PrefectureDto audienceDto);
 	
-	void delete(String code);
+	void delete(Long id);
 
 }

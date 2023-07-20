@@ -17,7 +17,6 @@ import javax.persistence.*;
 @Table(name = "sanctionObtenu")
 public class SanctionObtenu extends AbstractEntity {
 
-	@Id
     @Column(name = "date")
     private String date;
 

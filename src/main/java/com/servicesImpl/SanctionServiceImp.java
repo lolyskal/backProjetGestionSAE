@@ -27,8 +27,9 @@ public class SanctionServiceImp implements SanctionService {
     }
 
     @Override
-    public SanctionDto findById(String code) {
-        Sanction sanction = this.sanctionRepository.findById(code).orElseThrow(() -> new ResourceNotFoundException("Sanction", "code", code));
+    public SanctionDto findById(Long id) {
+        Sanction sanction = this.sanctionRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Sanction", "ID", id));
         return this.entityMapper.sanctionToSanctionDto(sanction);
     }
 
@@ -41,9 +42,9 @@ public class SanctionServiceImp implements SanctionService {
     }
 
     @Override
-    public SanctionDto update(String code, SanctionDto sanctionDto) {
-        Sanction sanction = this.sanctionRepository.findById(code)
-                .orElseThrow(() -> new ResourceNotFoundException("Sanction", " code",code));
+    public SanctionDto update(Long id, SanctionDto sanctionDto) {
+        Sanction sanction = this.sanctionRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Sanction", " code",id));
         sanction.setLibelle(sanctionDto.getLibelle());
 
         Sanction sanctionUpdate = this.sanctionRepository.save(sanction);
@@ -51,10 +52,10 @@ public class SanctionServiceImp implements SanctionService {
     }
 
     @Override
-    public void delete(String code) {
+    public void delete(Long id) {
 
-        Sanction sanction = this.sanctionRepository.findById(code)
-                .orElseThrow(() -> new ResourceNotFoundException("Sanction", "code", code));
+        Sanction sanction = this.sanctionRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Sanction", "ID", id));
         this.sanctionRepository.delete(sanction);
     }
 }

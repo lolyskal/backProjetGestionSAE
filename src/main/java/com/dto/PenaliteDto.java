@@ -8,12 +8,12 @@ import lombok.Data;
 
 @Data
 public class PenaliteDto {
-	
+	 private Integer id;
 	 private String typePenalite;
 
-	private Integer duree ;
+	private Integer duree;
 
-	private int montants;
+	private Double montant;
 @JsonIgnore
 	private List<PenaliteObtenuDto> penalite_Obtenu;
 }

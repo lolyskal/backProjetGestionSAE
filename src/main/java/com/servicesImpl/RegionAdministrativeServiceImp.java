@@ -29,8 +29,9 @@ public class RegionAdministrativeServiceImp implements RegionAdministrativeServi
     }
 
     @Override
-    public RegionAdministrativeDto findById(String code) {
-        RegionAdministrative regionAdministrative = this.regionAdministrativeRepository.findById(code).orElseThrow(() -> new ResourceNotFoundException("RegionAdministrative", "code", code));
+    public RegionAdministrativeDto findById(Long id) {
+        RegionAdministrative regionAdministrative = this.regionAdministrativeRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("RegionAdministrative", "code", id));
         return this.entityMapper.regionAdministrativeToRegionAdministrativeDto(regionAdministrative);
     }
 
@@ -43,9 +44,9 @@ public class RegionAdministrativeServiceImp implements RegionAdministrativeServi
     }
 
     @Override
-    public RegionAdministrativeDto update(String code, RegionAdministrativeDto regionAdministrativeDto) {
-        RegionAdministrative regionAdministrative = this.regionAdministrativeRepository.findById(code)
-                .orElseThrow(() -> new ResourceNotFoundException("RegionAdministrative", " code", code));
+    public RegionAdministrativeDto update(Long id, RegionAdministrativeDto regionAdministrativeDto) {
+        RegionAdministrative regionAdministrative = this.regionAdministrativeRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("RegionAdministrative", " code", id));
         regionAdministrative.setLibelle(regionAdministrativeDto.getLibelle());
 
         RegionAdministrative regionAdministrativeUpdate = this.regionAdministrativeRepository.save(regionAdministrative);
@@ -53,10 +54,10 @@ public class RegionAdministrativeServiceImp implements RegionAdministrativeServi
     }
 
     @Override
-    public void delete(String code) {
+    public void delete(Long id) {
 
-        RegionAdministrative regionAdministrative = this.regionAdministrativeRepository.findById(code)
-                .orElseThrow(() -> new ResourceNotFoundException("RegionAdministrative", "code", code));
+        RegionAdministrative regionAdministrative = this.regionAdministrativeRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("RegionAdministrative", "code", id));
         this.regionAdministrativeRepository.delete(regionAdministrative);
     }
 }

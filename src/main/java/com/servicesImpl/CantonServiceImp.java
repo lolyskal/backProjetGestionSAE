@@ -32,8 +32,8 @@ public class CantonServiceImp implements CantonService {
     }
 
     @Override
-    public CantonDto findById(String code) {
-        Canton canton= this.cantonRepository.findById(code).orElseThrow(() -> new ResourceNotFoundException("Canton", " code", code));
+    public CantonDto findById(Long id) {
+        Canton canton= this.cantonRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Canton", " code", id));
         return this.entityMapper.cantonToCantonDto(canton);
     }
 
@@ -47,9 +47,9 @@ public class CantonServiceImp implements CantonService {
     }
 
     @Override
-    public CantonDto update(String code, CantonDto cantonDto) {
-        Canton canton = this.cantonRepository.findById(code)
-                .orElseThrow(() -> new ResourceNotFoundException("Canton", " code", code));
+    public CantonDto update(Long id, CantonDto cantonDto) {
+        Canton canton = this.cantonRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Canton", " code", id));
         canton.setLibelle(cantonDto.getLibelle());
 
         Canton  cantonUpdate = this.cantonRepository.save(canton);
@@ -57,10 +57,10 @@ public class CantonServiceImp implements CantonService {
     }
 
     @Override
-    public void delete(String code) {
+    public void delete(Long id) {
 
-        Canton canton= this.cantonRepository.findById(code)
-                .orElseThrow(() -> new ResourceNotFoundException("Canton", "code", code));
+        Canton canton= this.cantonRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Canton", "code", id));
         this.cantonRepository.delete(canton);
     }
 }

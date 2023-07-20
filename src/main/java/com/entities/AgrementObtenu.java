@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -20,7 +19,6 @@ import javax.persistence.*;
 @Table(name = "agrementObtenu")
 public class AgrementObtenu extends AbstractEntity {
     
-	@Id
     @Column(name = "numero")
     private Long numero;
 

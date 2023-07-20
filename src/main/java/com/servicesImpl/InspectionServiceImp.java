@@ -32,9 +32,9 @@ public class InspectionServiceImp implements InspectionService {
     }
 
     @Override
-    public InspectionDto findById(Integer numero) {
-        Inspection inspection = this.inspectionRepository.findById(numero)
-                .orElseThrow(() -> new ResourceNotFoundException("Inspection", " numero", numero));
+    public InspectionDto findById(Long id) {
+        Inspection inspection = this.inspectionRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Inspection", " numero", id));
         return this.entityMapper.inspectionToInspectionDto(inspection);
     }
 
@@ -47,9 +47,9 @@ public class InspectionServiceImp implements InspectionService {
     }
 
     @Override
-    public InspectionDto update(Integer numero, InspectionDto inspectionDto) {
-        Inspection inspection = this.inspectionRepository.findById(numero)
-                .orElseThrow(() -> new ResourceNotFoundException("Inspection", " numero ", numero));
+    public InspectionDto update(Long id, InspectionDto inspectionDto) {
+        Inspection inspection = this.inspectionRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Inspection", " numero ", id));
         inspection.setLibelle(inspectionDto.getLibelle());
 
         Inspection inspectionUpdate = this.inspectionRepository.save(inspection);
@@ -57,10 +57,10 @@ public class InspectionServiceImp implements InspectionService {
     }
 
     @Override
-    public void delete(Integer numero) {
+    public void delete(Long id) {
 
-        Inspection inspection = this.inspectionRepository.findById(numero)
-                .orElseThrow(() -> new ResourceNotFoundException("Inspection", "numero", numero));
+        Inspection inspection = this.inspectionRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Inspection", "numero", id));
         this.inspectionRepository.delete(inspection);
     }
 

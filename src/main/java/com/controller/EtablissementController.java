@@ -29,16 +29,16 @@ public class EtablissementController {
     {
         return etablissementService.save(etablissementDto);
     }
-    @PutMapping("/update/{codeEtablissement}")
+    @PutMapping("/update/{id}")
     @ResponseBody
-    public EtablissementDto update(@PathVariable String nom_Etablissement, @RequestBody EtablissementDto etablissementDto){
-        return etablissementService.update(nom_Etablissement , etablissementDto);
+    public EtablissementDto update(@PathVariable Long id, @RequestBody EtablissementDto etablissementDto){
+        return etablissementService.update(id , etablissementDto);
     }
-    @DeleteMapping("supprimerEtablissement/{codeEtablissement}")
+    @DeleteMapping("supprimerEtablissement/{id}")
     @ResponseBody
-    public void delete(@PathVariable String nom_Etablissement)
+    public void delete(@PathVariable Long id)
     {
-        etablissementService.delete(nom_Etablissement);
+        etablissementService.delete(id);
     }
 
 }

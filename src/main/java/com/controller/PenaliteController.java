@@ -11,7 +11,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/Penalite")
+@RequestMapping("/penalite")
 @AllArgsConstructor
 public class PenaliteController {
 
@@ -30,16 +30,16 @@ public class PenaliteController {
     {
         return penaliteService.save(penaliteDto);
     }
-    @PutMapping("/update/{typePenalite}")
+    @PutMapping("/updatePenalite/{id}")
     @ResponseBody
-    public PenaliteDto update(@PathVariable String typePenalite, @RequestBody PenaliteDto penaliteDto){
-        return penaliteService.update( typePenalite, penaliteDto);
+    public PenaliteDto update(@PathVariable Long id, @RequestBody PenaliteDto penaliteDto){
+        return penaliteService.update(id , penaliteDto);
     }
-    @DeleteMapping("supprimertypePenalite/{typePenalite}")
+    @DeleteMapping("supprimePenalite/{id}")
     @ResponseBody
-    public void delete(@PathVariable String typePenalite)
+    public void delete(@PathVariable Long id)
     {
-        penaliteService.delete(typePenalite);
+        penaliteService.delete(id);
     }
 
 }

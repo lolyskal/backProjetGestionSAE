@@ -30,16 +30,16 @@ public class AgrementController {
     {
         return agrementService.save(agrementDto);
     }
-    @PutMapping("/update/{code}")
+    @PutMapping("/update/{id}")
     @ResponseBody
-    public AgrementDto update(@PathVariable String code, @RequestBody AgrementDto agrementDto){
-        return agrementService.update(code, agrementDto);
+    public AgrementDto update(@PathVariable Long id, @RequestBody AgrementDto agrementDto){
+        return agrementService.update(id, agrementDto);
     }
-    @DeleteMapping("supprimeragrement")
+    @DeleteMapping("supprimeragrement/{id}")
     @ResponseBody
-    public void delete(@PathVariable String code)
+    public void delete(@PathVariable long id)
     {
-        agrementService.delete(code);
+        agrementService.delete(id);
     }
 
 }

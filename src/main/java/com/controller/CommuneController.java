@@ -12,14 +12,14 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/Commune")
+@RequestMapping("/commune")
 @AllArgsConstructor
 public class CommuneController {
 
     @Autowired
     private final CommuneService communeService;
 
-    @GetMapping("/Communes")
+    @GetMapping("/communes")
     @ResponseBody
     public List<CommuneDto> findAll()
     {
@@ -31,16 +31,16 @@ public class CommuneController {
     {
         return communeService.save(communeDto);
     }
-    @PutMapping("/update/{codecommune}")
+    @PutMapping("/update/{id}")
     @ResponseBody
-    public CommuneDto update(@PathVariable String code, @RequestBody CommuneDto communeDto){
-        return communeService.update(code, communeDto);
+    public CommuneDto update(@PathVariable Long id, @RequestBody CommuneDto communeDto){
+        return communeService.update(id, communeDto);
     }
-    @DeleteMapping("supprimercommune/{codecommune}")
+    @DeleteMapping("supprimercommune/{id}")
     @ResponseBody
-    public void delete(@PathVariable String code)
+    public void delete(@PathVariable Long id)
     {
-        communeService.delete(code);
+        communeService.delete(id);
     }
 
 }

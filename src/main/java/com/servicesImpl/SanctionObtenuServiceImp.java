@@ -30,8 +30,9 @@ public class SanctionObtenuServiceImp implements SanctionObtenuService {
     }
 
     @Override
-    public SanctionObtenuDto findById(String date) {
-        SanctionObtenu sanctionObtenu = this.sanctionObtenuRepository.findById(date).orElseThrow(() -> new ResourceNotFoundException("SanctionObtenu", "date", date));
+    public SanctionObtenuDto findById(Long id) {
+        SanctionObtenu sanctionObtenu = this.sanctionObtenuRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("SanctionObtenu", "date", id));
         return this.entityMapper.sanctionObtenuToSanctionObtenuDto(sanctionObtenu);
     }
 
@@ -45,10 +46,10 @@ public class SanctionObtenuServiceImp implements SanctionObtenuService {
     }
 
     @Override
-    public SanctionObtenuDto update(String date, SanctionObtenuDto sanctionObtenuDto) {
+    public SanctionObtenuDto update(Long id, SanctionObtenuDto sanctionObtenuDto) {
 
-        SanctionObtenu sanctionObtenu = this.sanctionObtenuRepository.findById(date)
-                .orElseThrow(() -> new ResourceNotFoundException("SanctionObtenu", " date", date));
+        SanctionObtenu sanctionObtenu = this.sanctionObtenuRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("SanctionObtenu", " date", id));
         sanctionObtenu.setMotif(sanctionObtenuDto.getMotif());
 
         SanctionObtenu sanctionObtenuUpdate = this.sanctionObtenuRepository.save(sanctionObtenu);
@@ -56,10 +57,10 @@ public class SanctionObtenuServiceImp implements SanctionObtenuService {
     }
 
     @Override
-    public void delete(String date) {
+    public void delete(Long id) {
 
-        SanctionObtenu sanctionObtenu = this.sanctionObtenuRepository.findById(date)
-                .orElseThrow(() -> new ResourceNotFoundException("SanctionObtenu", "date", date));
+        SanctionObtenu sanctionObtenu = this.sanctionObtenuRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("SanctionObtenu", "date", id));
         this.sanctionObtenuRepository.delete(sanctionObtenu);
     }
 }

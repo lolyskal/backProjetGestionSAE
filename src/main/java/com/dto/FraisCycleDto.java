@@ -10,7 +10,8 @@ import lombok.Data;
 
 @Data
 public class FraisCycleDto {
-	
+
+	private Long id;
 	private int code ;
 	
 	private String libelle ;

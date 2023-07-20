@@ -20,7 +20,6 @@ import javax.persistence.*;
 public class OrdreEnseignement extends AbstractEntity {
 
 
-    @Id
     @Column(name = "code")
     private String code;
 

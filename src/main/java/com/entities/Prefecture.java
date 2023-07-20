@@ -20,14 +20,13 @@ import javax.persistence.*;
 public class Prefecture extends AbstractEntity {
 
 
-   @Id
     @Column(name = "code")
     private String code;
 
     @Column(name = "libelle")
     private String libelle;
 
-    @Column(name = "chef_lieu")
+    @Column(name = "chefLieu")
     private String chefLieu;
 
     @ManyToOne

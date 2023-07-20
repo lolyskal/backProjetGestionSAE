@@ -32,9 +32,9 @@ public class CommuneServiceImp implements CommuneService {
     }
 
     @Override
-    public CommuneDto findById(String code) {
-        Commune commune =   this.communeRepository.findById(code)
-                .orElseThrow(()-> new ResourceNotFoundException("Commune","code", code));
+    public CommuneDto findById(Long id) {
+        Commune commune =   this.communeRepository.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException("Commune","code", id));
         return this.entityMapper.communeToCommuneDto(commune);
     }
 
@@ -47,10 +47,10 @@ public class CommuneServiceImp implements CommuneService {
     }
 
     @Override
-    public CommuneDto update(String code, CommuneDto communeDto) {
+    public CommuneDto update(Long id, CommuneDto communeDto) {
 
-        Commune commune = this.communeRepository.findById(code)
-                .orElseThrow(() -> new ResourceNotFoundException("Commune", " code ", code));
+        Commune commune = this.communeRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Commune", " code ", id));
         commune.setLibelle(communeDto.getLibelle());
 
         Commune  communeUpdate = this.communeRepository.save(commune);
@@ -58,10 +58,10 @@ public class CommuneServiceImp implements CommuneService {
     }
 
     @Override
-    public void delete(String code) {
+    public void delete(Long id) {
 
-        Commune commune = this.communeRepository.findById(code)
-                .orElseThrow(() -> new ResourceNotFoundException("Commune", "code", code));
+        Commune commune = this.communeRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Commune", "code", id));
         this.communeRepository.delete(commune);
 
     }

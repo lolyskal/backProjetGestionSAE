@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Data
 public class RegionEducativeDto {
-
+	private Long id;
 	private String libelle;
 	
 	private String zoneCouverture;

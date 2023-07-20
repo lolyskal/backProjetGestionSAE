@@ -9,12 +9,11 @@ import lombok.Data;
 @Data
 public class PrefectureDto {
 
-	
-	private String code;
-	
+	private Long id;
+
 	private String libelle ;
 	
-	private String chef_Lieu;
+	private String chefLieu;
 
 	private RegionAdministrativeDto regionAdministrative;
 @JsonIgnore

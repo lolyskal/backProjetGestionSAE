@@ -30,9 +30,9 @@ public class EtablissementServiceImp implements EtablissementService {
     }
 
     @Override
-    public EtablissementDto findById(String nom_Etablissement) {
-        Etablissement etablissement = this.etablissementRepository.findById(nom_Etablissement)
-                .orElseThrow(() -> new ResourceNotFoundException("Etablissement", "nom_Etablissement", nom_Etablissement));
+    public EtablissementDto findById(Long id) {
+        Etablissement etablissement = this.etablissementRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Etablissement", "nom_Etablissement", id));
         return this.entityMapper.etablissementToEtablissementDto(etablissement);
     }
 
@@ -46,7 +46,7 @@ public class EtablissementServiceImp implements EtablissementService {
     }
 
     @Override
-    public EtablissementDto update(String nom_Etablissement, EtablissementDto etablissementDto) {
+    public EtablissementDto update(Long id, EtablissementDto etablissementDto) {
         Etablissement etablissement = this.entityMapper.etablissementDtoToEtablissement(etablissementDto);
         Etablissement etablissementSaved = this.etablissementRepository.save(etablissement);
 
@@ -54,10 +54,10 @@ public class EtablissementServiceImp implements EtablissementService {
     }
 
     @Override
-    public void delete(String nom_Etablissement) {
+    public void delete(Long id) {
 
-        Etablissement etablissement = this.etablissementRepository.findById(nom_Etablissement)
-                .orElseThrow(() -> new ResourceNotFoundException("Etablissement", "nom_Etablissement", nom_Etablissement));
+        Etablissement etablissement = this.etablissementRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Etablissement", "nom_Etablissement", id));
         this.etablissementRepository.delete(etablissement);
 
     }

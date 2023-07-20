@@ -8,12 +8,12 @@ public interface CycleEnseignementService {
 	
 	List<CycleEnseignementDto> findAll();
 	
-	CycleEnseignementDto findById(String code);
+	CycleEnseignementDto findById(Long id);
 	
 	CycleEnseignementDto save (CycleEnseignementDto cycleEnseignementDto);
 	
-	CycleEnseignementDto update (String code, CycleEnseignementDto cycleEnseignementDto);
+	CycleEnseignementDto update (Long id, CycleEnseignementDto cycleEnseignementDto);
 	
-	void delete (String code);
+	void delete (Long id);
 
 }

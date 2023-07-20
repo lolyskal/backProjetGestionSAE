@@ -12,11 +12,12 @@ public interface AgrementObtenuService {
 	 List<AgrementObtenuDto> findAll();
 
 
-    AgrementObtenuDto findById(Long numero);
+    AgrementObtenuDto findById(Long id);
+
 
     AgrementObtenuDto save(AgrementObtenuDto agrementObtenuDto);
 
-	AgrementObtenuDto update(Long numero, AgrementObtenuDto agrementObtenuDto);
+	AgrementObtenuDto update(Long id, AgrementObtenuDto agrementObtenuDto);
 
-	void delete(Long numero);
+	void delete(Long id);
 }

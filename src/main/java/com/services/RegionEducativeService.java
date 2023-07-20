@@ -8,13 +8,13 @@ public interface RegionEducativeService {
 	
 	List<RegionEducativeDto> findAll();
 	
-	RegionEducativeDto findById(String libelle);
+	RegionEducativeDto findById(Long id);
 	
 	RegionEducativeDto save(RegionEducativeDto regionEducativeDto);
 	
-	RegionEducativeDto update(String libelle, RegionEducativeDto regionEducativeDto);
+	RegionEducativeDto update(Long id, RegionEducativeDto regionEducativeDto);
 	
-	void delete(String libelle);
+	void delete(Long id);
 	
 
 }

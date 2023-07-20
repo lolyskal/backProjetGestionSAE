@@ -33,26 +33,25 @@ public class CycleEnseignementServiceImp implements CycleEnseignementService {
 	}
 
 	@Override
-	public CycleEnseignementDto findById(String code) {
+	public CycleEnseignementDto findById(Long id) {
 
-		CycleEnseignement cycleEnseignement = this.cycleEnseignementRepository.findById(code)
-				.orElseThrow(() -> new ResourceNotFoundException("CycleEnseignement", " code", code));
+		CycleEnseignement cycleEnseignement = this.cycleEnseignementRepository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("CycleEnseignement", " code", id));
 		return this.entityMapper.cycleEnseignementToCycleEnseignementDto(cycleEnseignement);
 	}
 
 	@Override
 	public CycleEnseignementDto save(CycleEnseignementDto cycleEnseignementDto) {
 
-		CycleEnseignement cycleEnseignement = this.entityMapper
-				.cycleEnseignementDtoToCycleEnseignement(cycleEnseignementDto);
+		CycleEnseignement cycleEnseignement = this.entityMapper.cycleEnseignementDtoToCycleEnseignement(cycleEnseignementDto);
 		CycleEnseignement cycleEnseignementSaved = this.cycleEnseignementRepository.save(cycleEnseignement);
 		return this.entityMapper.cycleEnseignementToCycleEnseignementDto(cycleEnseignementSaved);
 	}
 
 	@Override
-	public CycleEnseignementDto update(String code, CycleEnseignementDto cycleEnseignementDto) {
-		CycleEnseignement cycleEnseignement = this.cycleEnseignementRepository.findById(code)
-				.orElseThrow(() -> new ResourceNotFoundException("cycleEnseignement", " code ", code));
+	public CycleEnseignementDto update(Long id, CycleEnseignementDto cycleEnseignementDto) {
+		CycleEnseignement cycleEnseignement = this.cycleEnseignementRepository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("cycleEnseignement", " code ", id));
 		cycleEnseignement.setLibelle(cycleEnseignementDto.getLibelle());
 
 		CycleEnseignement cycleEnseignementUpdate = this.cycleEnseignementRepository.save(cycleEnseignement);
@@ -60,10 +59,10 @@ public class CycleEnseignementServiceImp implements CycleEnseignementService {
 	}
 
 	@Override
-	public void delete(String code) {
+	public void delete(Long id) {
 
-		CycleEnseignement cycleEnseignement = this.cycleEnseignementRepository.findById(code)
-				.orElseThrow(() -> new ResourceNotFoundException("CycleEnseignement", "code", code));
+		CycleEnseignement cycleEnseignement = this.cycleEnseignementRepository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("CycleEnseignement", "code", id));
 		this.cycleEnseignementRepository.delete(cycleEnseignement);
 
 	}

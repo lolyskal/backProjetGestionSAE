@@ -20,7 +20,6 @@ import javax.persistence.*;
 @Table(name = "regionAdministrative")
 public class RegionAdministrative extends AbstractEntity {
 
-    @Id
     @Column(name = "code")
     private String code;
 
@@ -30,7 +29,7 @@ public class RegionAdministrative extends AbstractEntity {
     @Column(name = "capital")
     private String capital;
 
-    @Column(name = "chef_lieu_region")
+    @Column(name = "cheflieuRegion")
     private String chefLieuRegion;
 
     @OneToMany(mappedBy = "regionAdministrative")

@@ -30,8 +30,9 @@ public class PrefectureServiceImp implements PrefectureService {
     }
 
     @Override
-    public PrefectureDto findById(String code) {
-        Prefecture prefecture = this.prefectureRepository.findById(code).orElseThrow(() -> new ResourceNotFoundException("Prefecture ", " code", code));
+    public PrefectureDto findById(Long id) {
+        Prefecture prefecture = this.prefectureRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Prefecture ", " code", id));
         return this.entityMapper.prefectureToPrefectureDto(prefecture);
     }
 
@@ -45,10 +46,10 @@ public class PrefectureServiceImp implements PrefectureService {
     }
 
     @Override
-    public PrefectureDto update(String code, PrefectureDto prefectureDto) {
+    public PrefectureDto update(Long id, PrefectureDto prefectureDto) {
 
-        Prefecture prefecture  = this.prefectureRepository.findById(code)
-                .orElseThrow(() -> new ResourceNotFoundException(" Prefecture", "code ", code));
+        Prefecture prefecture  = this.prefectureRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(" Prefecture", "code ", id));
         prefecture.setLibelle(prefectureDto.getLibelle());
 
         Prefecture prefectureUpdate = this.prefectureRepository.save(prefecture );
@@ -56,10 +57,10 @@ public class PrefectureServiceImp implements PrefectureService {
     }
 
     @Override
-    public void delete(String code) {
+    public void delete(Long id) {
 
-        Prefecture prefecture = this.prefectureRepository.findById(code)
-                .orElseThrow(() -> new ResourceNotFoundException(" Prefecture ", "code", code));
+        Prefecture prefecture = this.prefectureRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(" Prefecture ", "code", id));
         this.prefectureRepository.delete(prefecture );
 
     }

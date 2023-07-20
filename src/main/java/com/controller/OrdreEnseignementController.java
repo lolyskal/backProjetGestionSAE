@@ -30,16 +30,16 @@ public class OrdreEnseignementController {
     {
         return ordreEnseignementService.save(ordreEnseignementDto);
     }
-    @PutMapping("/update/{codeOrdreEnseignement}")
+    @PutMapping("/update/{id}")
     @ResponseBody
-    public OrdreEnseignementDto update(@PathVariable String code, @RequestBody OrdreEnseignementDto ordreEnseignementDto){
-        return ordreEnseignementService.update( code, ordreEnseignementDto);
+    public OrdreEnseignementDto update(@PathVariable Long id, @RequestBody OrdreEnseignementDto ordreEnseignementDto){
+        return ordreEnseignementService.update( id, ordreEnseignementDto);
     }
-    @DeleteMapping("supprimerOrdreEnseignement/{code}")
+    @DeleteMapping("supprimerOrdreEnseignement/{id}")
     @ResponseBody
-    public void delete(@PathVariable  String code)
+    public void delete(@PathVariable  Long id)
     {
-        ordreEnseignementService.delete(code);
+        ordreEnseignementService.delete(id);
     }
 
 }

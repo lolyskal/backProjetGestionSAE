@@ -21,7 +21,7 @@ import javax.persistence.*;
 public class Canton extends AbstractEntity {
 
 
-    @Id
+
     @Column(name = "code")
     private String code;
 

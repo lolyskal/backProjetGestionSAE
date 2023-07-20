@@ -19,7 +19,6 @@ import javax.persistence.*;
 @Table(name = "etablissement")
 public class Etablissement extends AbstractEntity {
 
-	@Id
 
     @Column(name = "nom_Etablissement")
     private String nom_Etablissement;

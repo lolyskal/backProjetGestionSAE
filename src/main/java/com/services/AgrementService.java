@@ -8,11 +8,11 @@ public interface AgrementService {
 
     List<AgrementDto> findAll();
 
-    AgrementDto findById(String code);
+    AgrementDto findById(Long id);
 
     AgrementDto save(AgrementDto agrementDto);
 
-    AgrementDto update(String code, AgrementDto agrementDto);
+    AgrementDto update(Long id, AgrementDto agrementDto);
 
-    void delete(String code);
+    void delete(Long code);
 }

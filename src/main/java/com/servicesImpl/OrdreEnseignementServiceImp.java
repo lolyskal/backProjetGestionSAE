@@ -30,9 +30,9 @@ public class OrdreEnseignementServiceImp implements OrdreEnseignementService {
     }
 
     @Override
-    public OrdreEnseignementDto findById(String code) {
-        OrdreEnseignement ordreEnseignement = this.ordreEnseignementRepository.findById(code)
-                .orElseThrow(() -> new ResourceNotFoundException("OrdreEnseignement", " code", code));
+    public OrdreEnseignementDto findById(Long id) {
+        OrdreEnseignement ordreEnseignement = this.ordreEnseignementRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("OrdreEnseignement", " code", id));
         return this.entityMapper.ordreEnseignementToOrdreEnseignementDto(ordreEnseignement);
     }
 
@@ -46,9 +46,9 @@ public class OrdreEnseignementServiceImp implements OrdreEnseignementService {
     }
 
     @Override
-    public OrdreEnseignementDto update(String code, OrdreEnseignementDto ordreEnseignementDto) {
-        OrdreEnseignement ordreEnseignement = this.ordreEnseignementRepository.findById(code)
-                .orElseThrow(() -> new ResourceNotFoundException("OrdreEnseignement", " code ", code));
+    public OrdreEnseignementDto update(Long id, OrdreEnseignementDto ordreEnseignementDto) {
+        OrdreEnseignement ordreEnseignement = this.ordreEnseignementRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("OrdreEnseignement", " code ", id));
         ordreEnseignement.setLibelle(ordreEnseignementDto.getLibelle());
 
         OrdreEnseignement ordreEnseignementUpdate = this.ordreEnseignementRepository.save(ordreEnseignement);
@@ -56,10 +56,10 @@ public class OrdreEnseignementServiceImp implements OrdreEnseignementService {
     }
 
     @Override
-    public void delete(String code) {
+    public void delete(Long id) {
 
-        OrdreEnseignement ordreEnseignement = this.ordreEnseignementRepository.findById(code)
-                .orElseThrow(() -> new ResourceNotFoundException("OrdreEnseignement", "code", code));
+        OrdreEnseignement ordreEnseignement = this.ordreEnseignementRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("OrdreEnseignement", "code", id));
         this.ordreEnseignementRepository.delete(ordreEnseignement);
 
     }

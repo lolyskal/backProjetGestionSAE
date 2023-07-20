@@ -20,8 +20,6 @@ import javax.persistence.*;
 @Table(name = "inspection")
 public class Inspection extends AbstractEntity {
 
-    @Id
-    protected Long id;
 
     @Column(name = "numero")
     private Integer numero;

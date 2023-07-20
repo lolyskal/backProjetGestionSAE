@@ -8,12 +8,12 @@ public interface CommuneService {
 	
 	List<CommuneDto> findAll ();
 	
-	CommuneDto findById (String code);
+	CommuneDto findById (Long id);
 	
 	CommuneDto save(CommuneDto communeDto);
 	
-	CommuneDto update(String code, CommuneDto communeDto);
+	CommuneDto update(Long id, CommuneDto communeDto);
 	
-	void delete(String code);
+	void delete(Long id);
 
 }

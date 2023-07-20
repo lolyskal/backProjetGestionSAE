@@ -30,10 +30,10 @@ public class FraisCycleServiceImp implements FraisCycleService {
     }
 
     @Override
-    public FraisCycleDto findById(Integer code) {
+    public FraisCycleDto findById(Long id) {
 
-        FraisCycle fraisCycle = this.fraisCycleRepository.findById(code)
-                .orElseThrow(() -> new ResourceNotFoundException("FraisCycle", "code", code));
+        FraisCycle fraisCycle = this.fraisCycleRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("FraisCycle", "code", id));
         return this.entityMapper.fraisCycleToFraisCycleDto(fraisCycle);
     }
 
@@ -46,10 +46,10 @@ public class FraisCycleServiceImp implements FraisCycleService {
     }
 
     @Override
-    public FraisCycleDto update(Integer code, FraisCycleDto fraisCycleDto) {
+    public FraisCycleDto update(Long id, FraisCycleDto fraisCycleDto) {
 
-        FraisCycle fraisCycle = this.fraisCycleRepository.findById(code)
-                .orElseThrow(() -> new ResourceNotFoundException("FraisCycle", " code ", code));
+        FraisCycle fraisCycle = this.fraisCycleRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("FraisCycle", " code ", id));
         fraisCycle.setLibelle(fraisCycleDto.getLibelle());
 
         FraisCycle fraisCycleUpdate = this.fraisCycleRepository.save(fraisCycle);
@@ -57,7 +57,11 @@ public class FraisCycleServiceImp implements FraisCycleService {
     }
 
     @Override
-    public void delete(Integer code) {
+    public void delete(Long id) {
+
+        FraisCycle fraisCycle = this.fraisCycleRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("FraisCycle", "code", id));
+        this.fraisCycleRepository.delete(fraisCycle);
 
     }
 }

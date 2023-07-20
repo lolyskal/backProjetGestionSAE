@@ -10,6 +10,8 @@ import lombok.Data;
 
 @Data
 public class CantonDto {
+
+	private Long id;
 	
 	private String code;
 	

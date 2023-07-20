@@ -33,9 +33,9 @@ public class AgrementServiceImp implements AgrementService {
     }
 
     @Override
-    public AgrementDto findById(String code) {
-        Agrement agrement = this.agrementRepository.findById(code)
-                .orElseThrow(() -> new ResourceNotFoundException("Agrement", " code", code));
+    public AgrementDto findById(Long id) {
+        Agrement agrement = this.agrementRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Agrement", " code", id));
         return this.entityMapper.agrementToAgrementDto(agrement);
     }
 
@@ -50,9 +50,9 @@ public class AgrementServiceImp implements AgrementService {
     }
 
     @Override
-    public AgrementDto update(String code, AgrementDto agrementDto) {
-        Agrement agrement = this.agrementRepository.findById(code)
-                .orElseThrow(() -> new ResourceNotFoundException("Agrement", " code ", code));
+    public AgrementDto update(Long id, AgrementDto agrementDto) {
+        Agrement agrement = this.agrementRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Agrement", " code ", id));
         agrement.setLibelle(agrementDto.getLibelle());
 
         Agrement  agrementUpdate = this.agrementRepository.save(agrement);
@@ -61,10 +61,10 @@ public class AgrementServiceImp implements AgrementService {
     }
 
     @Override
-    public void delete(String code) {
+    public void delete(Long id) {
 
-        Agrement agrement = this.agrementRepository.findById(code)
-                .orElseThrow(() -> new ResourceNotFoundException("Agrement", "code", code));
+        Agrement agrement = this.agrementRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Agrement", "code", id));
         this.agrementRepository.delete(agrement);
 
     }

@@ -8,12 +8,12 @@ public interface FraisCycleService {
 	
 	List<FraisCycleDto> findAll();
 	
-	FraisCycleDto findById(Integer code);
+	FraisCycleDto findById(Long id);
 	
 	FraisCycleDto save(FraisCycleDto fraisCycleDto);
 	
-	FraisCycleDto update(Integer code , FraisCycleDto fraisCycleDto);
+	FraisCycleDto update(Long id , FraisCycleDto fraisCycleDto);
 	
-	void delete(Integer code);
+	void delete(Long id);
 
 }

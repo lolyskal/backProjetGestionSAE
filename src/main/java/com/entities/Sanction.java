@@ -19,7 +19,6 @@ import javax.persistence.*;
 @Table(name = "sanction")
 public class Sanction extends AbstractEntity {
 
-	@Id
     @Column(name = "code_sanction")
     private String code;
 

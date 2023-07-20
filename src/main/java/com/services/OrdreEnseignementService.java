@@ -8,12 +8,12 @@ public interface OrdreEnseignementService {
 	
 	List<OrdreEnseignementDto> findAll();
 	
-	OrdreEnseignementDto findById(String code);
+	OrdreEnseignementDto findById(Long id);
 	
 	OrdreEnseignementDto save(OrdreEnseignementDto OrdreEnseignementDto);
 	
-	OrdreEnseignementDto update(String code , OrdreEnseignementDto ordreEnseignementDto);
+	OrdreEnseignementDto update(Long id , OrdreEnseignementDto ordreEnseignementDto);
 	
-	void delete(String code);
+	void delete(Long id);
 
 }

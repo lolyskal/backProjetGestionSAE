@@ -11,8 +11,8 @@ import lombok.Data;
 public class AgrementObtenuDto {
 
 
-	
-	private Long numero ;
+
+	private Long id;
 	
 	private Instant date ;
 

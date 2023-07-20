@@ -11,7 +11,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/Prefecture")
+@RequestMapping("/prefecture")
 @AllArgsConstructor
 public class PrefectureController {
 
@@ -30,16 +30,16 @@ public class PrefectureController {
     {
         return prefectureService.save(prefectureDto);
     }
-    @PutMapping("/update/{codeprefecture}")
+    @PutMapping("/updateprefecture/{id}")
     @ResponseBody
-    public PrefectureDto update(@PathVariable String code, @RequestBody PrefectureDto prefectureDto){
-        return prefectureService.update( code, prefectureDto);
+    public PrefectureDto update(@PathVariable Long id, @RequestBody PrefectureDto prefectureDto){
+        return prefectureService.update( id, prefectureDto);
     }
-    @DeleteMapping("supprimercode/{code}")
+    @DeleteMapping("supprimerprefecture/{id}")
     @ResponseBody
-    public void delete(@PathVariable String code)
+    public void delete(@PathVariable Long id)
     {
-        prefectureService.delete(code);
+        prefectureService.delete(id);
     }
 
 }

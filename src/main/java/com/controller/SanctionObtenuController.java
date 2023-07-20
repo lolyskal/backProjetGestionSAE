@@ -12,14 +12,14 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/SanctionObtenu")
+@RequestMapping(path="/sanctionObtenu")
 @AllArgsConstructor
 public class SanctionObtenuController {
 
     @Autowired
     private final SanctionObtenuService sanctionObtenuService;
 
-    @GetMapping("/sanctionobtenus")
+    @GetMapping("/sanction0btenus")
     @ResponseBody
     public List<SanctionObtenuDto> findAll()
     {
@@ -31,16 +31,16 @@ public class SanctionObtenuController {
     {
         return sanctionObtenuService.save(sanctionObtenuDto);
     }
-    @PutMapping("/update/{sanctionobtenu}")
+    @PutMapping("/updateSanctionObtenu/{id}")
     @ResponseBody
-    public SanctionObtenuDto update(@PathVariable String date, @RequestBody SanctionObtenuDto sanctionObtenuDto){
-        return sanctionObtenuService.update( date, sanctionObtenuDto);
+    public SanctionObtenuDto update(@PathVariable Long id, @RequestBody SanctionObtenuDto sanctionObtenuDto){
+        return sanctionObtenuService.update(id, sanctionObtenuDto);
     }
-    @DeleteMapping("supprimer/{sanctionobtenu}")
+    @DeleteMapping("supprimerSanctionObtenu/{id}")
     @ResponseBody
-    public void delete(@PathVariable String sanctionobtenu)
+    public void delete(@PathVariable Long id)
     {
-        sanctionObtenuService.delete(sanctionobtenu);
+        sanctionObtenuService.delete(id);
     }
 
 }

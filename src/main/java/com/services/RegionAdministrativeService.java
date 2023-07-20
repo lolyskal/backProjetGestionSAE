@@ -8,12 +8,12 @@ public interface RegionAdministrativeService {
 	
 	List<RegionAdministrativeDto> findAll();
 	
-	RegionAdministrativeDto findById(String code);
+	RegionAdministrativeDto findById(Long id);
 	
 	RegionAdministrativeDto save(RegionAdministrativeDto regionAdministrativeDto);
 	
-	RegionAdministrativeDto update(String code, RegionAdministrativeDto regionAdministrativeDto);
+	RegionAdministrativeDto update(Long id, RegionAdministrativeDto regionAdministrativeDto);
 	
-	void delete(String code);
+	void delete(Long id);
 
 }

@@ -8,13 +8,13 @@ public interface EtablissementService {
 	
 	List<EtablissementDto> findAll();
 	
-	EtablissementDto findById (String nom_Etablissement);
+	EtablissementDto findById (Long id);
 	
 	EtablissementDto save(EtablissementDto etablissementDto);
 	
-	EtablissementDto update(String nom_Etablissement , EtablissementDto etablissementDto);
+	EtablissementDto update(Long id , EtablissementDto etablissementDto);
 	
-	void delete(String nom_Etablisement);
+	void delete(Long id);
 
 
 }

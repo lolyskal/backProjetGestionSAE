@@ -10,7 +10,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/Commune")
+@RequestMapping("/cycleEnseignement")
 @AllArgsConstructor
 public class CycleEnseignementController {
 
@@ -23,22 +23,22 @@ public class CycleEnseignementController {
     {
         return cycleEnseignementService.findAll();
     }
-    @PostMapping("/CycleEnseignementSave")
+    @PostMapping("/cycleEnseignementSave")
     @ResponseBody
-    public CycleEnseignementDto save(CycleEnseignementDto cycleEnseignementDto)
+    public CycleEnseignementDto save(@RequestBody CycleEnseignementDto cycleEnseignementDto)
     {
         return cycleEnseignementService.save(cycleEnseignementDto);
     }
-    @PutMapping("/update/{codecycle}")
+    @PutMapping("/update/{id}")
     @ResponseBody
-    public CycleEnseignementDto update(@PathVariable String code, @RequestBody CycleEnseignementDto cycleEnseignementDto){
-        return cycleEnseignementService.update(code, cycleEnseignementDto);
+    public CycleEnseignementDto update(@PathVariable Long id, @RequestBody CycleEnseignementDto cycleEnseignementDto){
+        return cycleEnseignementService.update(id, cycleEnseignementDto);
     }
-    @DeleteMapping("supprimerCommune/{codeCycleEnseignement}")
+    @DeleteMapping("supprimerCommune/{id}")
     @ResponseBody
-    public void delete(@PathVariable String code)
+    public void delete(@PathVariable Long id)
     {
-        cycleEnseignementService.delete(code);
+        cycleEnseignementService.delete(id);
     }
 
 }

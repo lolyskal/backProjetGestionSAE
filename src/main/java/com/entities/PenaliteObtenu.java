@@ -18,7 +18,6 @@ import javax.persistence.*;
 public class PenaliteObtenu extends AbstractEntity {
 
 
-	@Id
     @Column(name = "date")
     private String date;
 

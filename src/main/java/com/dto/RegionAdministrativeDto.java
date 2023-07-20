@@ -8,14 +8,14 @@ import lombok.Data;
 
 @Data
 public class RegionAdministrativeDto {
-	
+	private Long id;
 	private String code;
 	
 	private String libelle ;
 
 	private String capital;
 
-	private String chef_Lieu_Region ;
+	private String chefLieuRegion ;
 @JsonIgnore
     private List<PrefectureDto> prefecture;
 }

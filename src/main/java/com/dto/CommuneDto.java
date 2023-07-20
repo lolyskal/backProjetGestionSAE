@@ -10,6 +10,8 @@ import lombok.Data;
 @Data
 public class CommuneDto {
 
+	private Long id;
+
 	private String code; ;
 
 	private String libelle ;

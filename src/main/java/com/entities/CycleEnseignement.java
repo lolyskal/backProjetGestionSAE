@@ -18,7 +18,6 @@ import javax.persistence.*;
 public class CycleEnseignement extends AbstractEntity {
 
 
-    @Id
     @Column(name = "code")
     private String code;
 

@@ -8,14 +8,13 @@ import javax.persistence.*;
 import java.util.List;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "agrement")
 public class Agrement extends AbstractEntity {
-    @Id
+
     @Column(name = "code")
     private String code;
 

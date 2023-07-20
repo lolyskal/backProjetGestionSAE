@@ -8,13 +8,13 @@ public interface PenaliteService {
 	
 	List<PenaliteDto> findAll();
 	
-	PenaliteDto findById(String typePenalite);
+	PenaliteDto findById(Long id);
 	
 	PenaliteDto save(PenaliteDto penaliteDto);
 	
-	PenaliteDto update(String typePenalite , PenaliteDto penaliteDto);
+	PenaliteDto update(Long id , PenaliteDto penaliteDto);
 	
-	void delete(String typePenalite);
+	void delete(Long id);
 	
 	
 

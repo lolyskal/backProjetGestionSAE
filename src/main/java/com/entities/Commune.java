@@ -21,7 +21,7 @@ import javax.persistence.*;
 @Table(name = "commune")
 public class Commune extends AbstractEntity {
 
-    @Id
+
     @Column(name = "code")
     private String code;
 

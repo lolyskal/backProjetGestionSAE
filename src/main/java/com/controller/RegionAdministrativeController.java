@@ -29,17 +29,17 @@ public class RegionAdministrativeController {
     {
         return regionAdministrativeService.save(regionAdministrativeDto);
     }
-    @PutMapping("/update/{code}")
+    @PutMapping("/updateRegionAdministrative/{id}")
     @ResponseBody
-    public RegionAdministrativeDto update(@PathVariable String code, @RequestBody RegionAdministrativeDto regionAdministrativeDto){
-        return regionAdministrativeService.update( code, regionAdministrativeDto);
+    public RegionAdministrativeDto update(@PathVariable Long id, @RequestBody RegionAdministrativeDto regionAdministrativeDto){
+        return regionAdministrativeService.update( id, regionAdministrativeDto);
     }
-    @DeleteMapping("supprimerRegionAdministrative/{code}")
+    @DeleteMapping("supprimerRegionAdministrative/{id}")
     @ResponseBody
-    public void delete(@PathVariable String code)
+    public void delete(@PathVariable Long id)
 
     {
-        regionAdministrativeService.delete(code);
+        regionAdministrativeService.delete(id);
     }
 
 }

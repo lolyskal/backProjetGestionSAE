@@ -10,9 +10,9 @@ import lombok.Data;
 
 @Data
 public class InspectionDto {
-	
-	private int numero;
 
+	private Long id;
+	private int numero;
 	private String libelle;
 
 	private RegionEducativeDto regionEducative;

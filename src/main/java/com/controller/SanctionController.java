@@ -10,7 +10,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/Sanction")
+@RequestMapping(path ="/sanction")
 @AllArgsConstructor
 public class SanctionController {
 
@@ -29,16 +29,16 @@ public class SanctionController {
     {
         return sanctionService.save(sanctionDto);
     }
-    @PutMapping("/update/{codeSanction}")
+    @PutMapping("/sanctionUpdate/{id}")
     @ResponseBody
-    public SanctionDto update(@PathVariable String code, @RequestBody SanctionDto sanctionDto){
-        return sanctionService.update( code, sanctionDto);
+    public SanctionDto update(@PathVariable Long id, @RequestBody SanctionDto sanctionDto){
+        return sanctionService.update( id, sanctionDto);
     }
-    @DeleteMapping("supprimercode/{codeSanction}")
+    @DeleteMapping("supprimerSanction/{id}")
     @ResponseBody
-    public void delete(@PathVariable String code)
+    public void delete(@PathVariable Long id)
     {
-        sanctionService.delete(code);
+        sanctionService.delete(id);
     }
 
 }

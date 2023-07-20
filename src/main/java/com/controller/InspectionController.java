@@ -11,7 +11,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/Inspection")
+@RequestMapping(path="/inspection")
 @AllArgsConstructor
 public class InspectionController {
 
@@ -30,16 +30,17 @@ public class InspectionController {
     {
         return inspectionService.save(inspectionDto);
     }
-    @PutMapping("/update/{libelle}")
+    @PutMapping("/updateinspection/{id}")
     @ResponseBody
-    public InspectionDto update(@PathVariable Integer numero, @RequestBody InspectionDto inspectionDto){
-        return inspectionService.update( numero, inspectionDto);
-    }
-    @DeleteMapping("supprimerinspection/{libelle}")
-    @ResponseBody
-    public void delete(@PathVariable Integer numero)
+    public InspectionDto update(@PathVariable Long id, @RequestBody InspectionDto inspectionDto)
     {
-        inspectionService.delete(numero);
+        return inspectionService.update( id, inspectionDto);
+    }
+    @DeleteMapping("supprimerinspection/{id}")
+    @ResponseBody
+    public void delete(@PathVariable Long id)
+    {
+        inspectionService.delete(id);
     }
 
 }

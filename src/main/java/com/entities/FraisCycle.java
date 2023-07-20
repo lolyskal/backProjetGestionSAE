@@ -21,7 +21,6 @@ import javax.persistence.*;
 public class FraisCycle extends AbstractEntity {
 
 
-    @Id
     @Column(name = "code")
     private int code;
 

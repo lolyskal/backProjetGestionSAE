@@ -34,8 +34,8 @@ public class AgrementObtenuServiceImp implements AgrementObtenuService {
     }
 
     @Override
-    public AgrementObtenuDto findById(Long numero) {
-        AgrementObtenu agrementObtenu = this.agrementObtenuRepository.findById(numero).orElseThrow(() -> new ResourceNotFoundException("AgrementObtenu", " numero", numero));
+    public AgrementObtenuDto findById(Long id) {
+        AgrementObtenu agrementObtenu = this.agrementObtenuRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("AgrementObtenu", " numero", id));
         return this.entityMapper.agrementObtenuToAgrementObtenuDto(agrementObtenu);
 
     }
@@ -50,10 +50,10 @@ public class AgrementObtenuServiceImp implements AgrementObtenuService {
     }
 
     @Override
-    public AgrementObtenuDto update(Long numero, AgrementObtenuDto agrementObtenuDto) {
+    public AgrementObtenuDto update(Long id, AgrementObtenuDto agrementObtenuDto) {
 
-        AgrementObtenu agrementObtenu = this.agrementObtenuRepository.findById(numero)
-                .orElseThrow(() -> new ResourceNotFoundException("AgrementObtenu", " numero ", numero));
+        AgrementObtenu agrementObtenu = this.agrementObtenuRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("AgrementObtenu", " numero ", id));
         agrementObtenu.setDate(agrementObtenuDto.getDate());
 
         AgrementObtenu  agrementObtenuUpdate = this.agrementObtenuRepository.save(agrementObtenu);
@@ -61,10 +61,10 @@ public class AgrementObtenuServiceImp implements AgrementObtenuService {
     }
 
     @Override
-    public void delete(Long numero) {
+    public void delete(Long id) {
 
-        AgrementObtenu agrementObtenu = this.agrementObtenuRepository.findById(numero)
-                .orElseThrow(() -> new ResourceNotFoundException("AgrementObtenu", "numero", numero));
+        AgrementObtenu agrementObtenu = this.agrementObtenuRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("AgrementObtenu", "numero", id));
         this.agrementObtenuRepository.delete(agrementObtenu);
 
     }

@@ -8,12 +8,12 @@ public interface InspectionService {
 	
 	List<InspectionDto> findAll();
 	
-	InspectionDto findById (Integer numero);
+	InspectionDto findById (Long id);
 	
 	InspectionDto save(InspectionDto inspectionDto);
 	
-	InspectionDto update(Integer numero , InspectionDto inspectionDto);
+	InspectionDto update(Long id , InspectionDto inspectionDto);
 	
-	void delete(Integer numero);
+	void delete(Long id);
 
 }

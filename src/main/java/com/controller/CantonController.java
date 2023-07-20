@@ -30,16 +30,16 @@ public class CantonController {
     {
         return cantonService.save(cantonDto);
     }
-    @PutMapping("/update/{codecanton}")
+    @PutMapping("/update/{id}")
     @ResponseBody
-    public CantonDto update(@PathVariable String code, @RequestBody CantonDto cantonDto){
+    public CantonDto update(@PathVariable Long id, @RequestBody CantonDto cantonDto){
 
-        return cantonService.update (code , cantonDto);
+        return cantonService.update (id , cantonDto);
     }
-    @DeleteMapping("supprimercanton/{code}")
+    @DeleteMapping("supprimercanton/{id}")
     @ResponseBody
-    public void delete(@PathVariable String code){
-        cantonService.delete(code);
+    public void delete(@PathVariable Long id) {
+        cantonService.delete(id);
     }
 
 }

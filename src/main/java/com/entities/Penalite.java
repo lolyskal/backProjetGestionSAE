@@ -20,7 +20,6 @@ import javax.persistence.*;
 @Table(name = "penalite")
 public class Penalite extends AbstractEntity {
 
-    @Id 
     @Column(name = "typePenalite ")
     private String typePenalite;
 

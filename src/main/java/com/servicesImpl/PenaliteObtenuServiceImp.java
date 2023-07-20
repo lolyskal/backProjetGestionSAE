@@ -32,24 +32,24 @@ public class PenaliteObtenuServiceImp implements PenaliteObtenuService {
     }
 
     @Override
-    public PenaliteObtenuDto findById(String date) {
-        PenaliteObtenu penaliteObtenu = this.penaliteObtenuRepository.findById(date).orElseThrow(() -> new ResourceNotFoundException(" PenaliteObtenu", " date", date));
+    public PenaliteObtenuDto findById(Long id) {
+        PenaliteObtenu penaliteObtenu = this.penaliteObtenuRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(" PenaliteObtenu", " ID", id));
         return this.entityMapper.penaliteObtenuToPenaliteObtenuDto( penaliteObtenu);
     }
 
     @Override
     public PenaliteObtenuDto save(PenaliteObtenuDto penaliteObtenuDto) {
-        PenaliteObtenu penaliteObtenu = this.entityMapper.penaliteObtenuDtoToPenaliteObtenu( penaliteObtenuDto);
+        PenaliteObtenu penaliteObtenu = this.entityMapper.penaliteObtenuDtoToPenaliteObtenu(penaliteObtenuDto);
         PenaliteObtenu  penaliteObtenuSaved = this.penaliteObtenuRepository.save(penaliteObtenu);
-
         return this.entityMapper.penaliteObtenuToPenaliteObtenuDto(penaliteObtenuSaved);
     }
 
     @Override
-    public PenaliteObtenuDto update(String date, PenaliteObtenuDto penaliteObtenuDto) {
+    public PenaliteObtenuDto update(Long id, PenaliteObtenuDto penaliteObtenuDto) {
 
-        PenaliteObtenu penaliteObtenu = this.penaliteObtenuRepository.findById(date)
-                .orElseThrow(() -> new ResourceNotFoundException("PenaliteObtenu", "date ", date));
+        PenaliteObtenu penaliteObtenu = this.penaliteObtenuRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("PenaliteObtenu", "date ", id));
         penaliteObtenu.setMotif(penaliteObtenuDto.getMotif());
 
         PenaliteObtenu  penaliteObtenuUpdate = this.penaliteObtenuRepository.save(penaliteObtenu);
@@ -57,10 +57,10 @@ public class PenaliteObtenuServiceImp implements PenaliteObtenuService {
     }
 
     @Override
-    public void delete(String date) {
+    public void delete(Long id) {
 
-        PenaliteObtenu  penaliteObtenu= this.penaliteObtenuRepository.findById(date)
-                .orElseThrow(() -> new ResourceNotFoundException("PenaliteObtenuObtenu", "date", date));
+        PenaliteObtenu  penaliteObtenu= this.penaliteObtenuRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("PenaliteObtenuObtenu", "ID", id));
         this.penaliteObtenuRepository.delete(penaliteObtenu);
 
     }

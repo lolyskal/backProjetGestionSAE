@@ -29,16 +29,17 @@ public class RegionEducativeController {
     {
         return regionEducativeService.save(regionEducativeDto);
     }
-    @PutMapping("/update/{libelleRegionEducative}")
+    @PutMapping("/regionEducativeUpdate/{id}")
     @ResponseBody
-    public RegionEducativeDto update(@PathVariable String libelle, @RequestBody RegionEducativeDto regionEducativeDto){
-        return regionEducativeService.update( libelle, regionEducativeDto);
+    public RegionEducativeDto update(@PathVariable Long id, @RequestBody RegionEducativeDto regionEducativeDto){
+        return regionEducativeService.update( id, regionEducativeDto);
     }
-    @DeleteMapping("supprimer/{libelle}")
+    @DeleteMapping("supprimerRegionEducative/{id}")
     @ResponseBody
-    public void delete(@PathVariable String libelle)
+    public void delete(@PathVariable Long id)
     {
-        regionEducativeService.delete(libelle);
+        regionEducativeService.delete(id);
     }
+
 
 }

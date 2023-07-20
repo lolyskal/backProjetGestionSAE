@@ -9,13 +9,12 @@ import lombok.Data;
 @Data
 public class EtablissementDto {
 
-
+    private Long id;
 	private String nom_Etablissement ;
 	
 	private String type_Etablissement;
 	
 	private String nom_Promoteur ;
-	
 
 	private String prenom_Promoteur;
 	
@@ -57,7 +56,7 @@ public class EtablissementDto {
     
     
     private OrdreEnseignementDto ordreEnseignement;
- @JsonIgnore    
+    @JsonIgnore
     private List<CycleEnseignementDto> cycleEnseignement;
     
 	private CantonDto Canton;

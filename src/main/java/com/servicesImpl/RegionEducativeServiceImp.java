@@ -19,6 +19,7 @@ public class RegionEducativeServiceImp implements RegionEducativeService {
 
     private RegionEducativeRepository regionEducativeRepository;
     private EntityMapper entityMapper;
+    @Autowired
     public RegionEducativeServiceImp(RegionEducativeRepository regionEducativeRepository,EntityMapper entityMapper){
         this.regionEducativeRepository = regionEducativeRepository;
         this.entityMapper = entityMapper;
@@ -31,8 +32,9 @@ public class RegionEducativeServiceImp implements RegionEducativeService {
     }
 
     @Override
-    public RegionEducativeDto findById(String libelle) {
-        RegionEducative regionEducative = this.regionEducativeRepository.findById(libelle).orElseThrow(() -> new ResourceNotFoundException("RegionEducative", " libelle", libelle));
+    public RegionEducativeDto findById(Long id) {
+        RegionEducative regionEducative = this.regionEducativeRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("RegionEducative", " ID", id));
         return this.entityMapper.regionEducativeToRegionEducativeDto(regionEducative);
     }
 
@@ -45,9 +47,9 @@ public class RegionEducativeServiceImp implements RegionEducativeService {
     }
 
     @Override
-    public RegionEducativeDto update(String libelle, RegionEducativeDto regionEducativeDto) {
-        RegionEducative regionEducative = this.regionEducativeRepository.findById(libelle)
-                .orElseThrow(() -> new ResourceNotFoundException("RegionEducative", " libelle", libelle));
+    public RegionEducativeDto update(Long id, RegionEducativeDto regionEducativeDto) {
+        RegionEducative regionEducative = this.regionEducativeRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("RegionEducative", " ID", id));
         regionEducative.setZoneCouverture(regionEducativeDto.getZoneCouverture());
 
         RegionEducative  regionEducativeUpdate = this.regionEducativeRepository.save(regionEducative);
@@ -55,10 +57,10 @@ public class RegionEducativeServiceImp implements RegionEducativeService {
     }
 
     @Override
-    public void delete(String libelle) {
+    public void delete(Long id) {
 
-        RegionEducative regionEducative= this.regionEducativeRepository.findById(libelle)
-                .orElseThrow(() -> new ResourceNotFoundException("RegionEducative", "libelle", libelle));
+        RegionEducative regionEducative= this.regionEducativeRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("RegionEducative", "ID", id));
         this.regionEducativeRepository.delete(regionEducative);
     }
 }

@@ -9,12 +9,12 @@ public interface CantonService {
 	
 	 List<CantonDto> findAll();
 
-	    CantonDto findById(String code);
+	    CantonDto findById(Long id);
 
 	    CantonDto save(CantonDto cantonDto);
 
-	    CantonDto update(String code, CantonDto cantonDto);
+	    CantonDto update(Long id, CantonDto cantonDto);
 
-	    void delete(String code);
+	    void delete(Long id);
 
 }

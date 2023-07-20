@@ -9,7 +9,8 @@ import lombok.Data;
 
 @Data
 public class SanctionDto {
-	
+	private Long id;
+
 	private String code;
 
 	private String libelle;

@@ -17,8 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 public class AgrementObtenuController {
 
-    @Autowired
-    private final AgrementObtenuService agrementObtenuService;
+    private AgrementObtenuService agrementObtenuService;
 
     @GetMapping("/agrementObtenus")
     @ResponseBody
@@ -30,15 +29,15 @@ public class AgrementObtenuController {
     public AgrementObtenuDto save(@RequestBody AgrementObtenuDto agrementObtenuDto){
         return agrementObtenuService.save(agrementObtenuDto);
     }
-    @PutMapping("/update/{numero}")
+    @PutMapping("/update/{id}")
     @ResponseBody
-    public AgrementObtenuDto update(@PathVariable Long numero, @RequestBody AgrementObtenuDto agrementObtenuDto){
-        return agrementObtenuService.update(numero, agrementObtenuDto);
+    public AgrementObtenuDto update(@PathVariable Long id, @RequestBody AgrementObtenuDto agrementObtenuDto){
+        return agrementObtenuService.update(id, agrementObtenuDto);
     }
-    @DeleteMapping("supprimerAgrementObtenu/{numero}")
+    @DeleteMapping("supprimerAgrementObtenu/{id}")
     @ResponseBody
-    public void delete(@PathVariable Long numero){
-        agrementObtenuService.delete(numero);
+    public void delete(@PathVariable Long id){
+        agrementObtenuService.delete(id);
     }
 
 }

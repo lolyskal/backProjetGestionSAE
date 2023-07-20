@@ -8,12 +8,12 @@ public interface PenaliteObtenuService {
 	
 	List<PenaliteObtenuDto> findAll();
 	
-	PenaliteObtenuDto findById(String date );
+	PenaliteObtenuDto findById(Long id );
 	
 	PenaliteObtenuDto save(PenaliteObtenuDto penaliteObtenuDto);
 	
-	PenaliteObtenuDto update(String date, PenaliteObtenuDto penaliteObtenuDto);
+	PenaliteObtenuDto update(Long id, PenaliteObtenuDto penaliteObtenuDto);
 	
-	void delete (String date);
+	void delete (Long id);
 
 }

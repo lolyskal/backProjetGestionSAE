@@ -9,10 +9,11 @@ import com.repository.PenaliteRepository;
 import com.services.PenaliteService;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 @Service
-
+@Transactional
 public class PenaliteServiceImp implements PenaliteService {
 
     private PenaliteRepository penaliteRepository;
@@ -31,9 +32,10 @@ public class PenaliteServiceImp implements PenaliteService {
     }
 
     @Override
-    public PenaliteDto findById(String typePenalite) {
+    public PenaliteDto findById(Long id) {
 
-        Penalite penalite = this.penaliteRepository.findById(typePenalite).orElseThrow(() -> new ResourceNotFoundException("Penalite", " typePenalite", typePenalite));
+        Penalite penalite = this.penaliteRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Penalite", " typePenalite", id));
         return this.entityMapper.penaliteToPenaliteDto(penalite);
     }
 
@@ -47,18 +49,18 @@ public class PenaliteServiceImp implements PenaliteService {
     }
 
     @Override
-    public PenaliteDto update(String typePenalite, PenaliteDto penaliteDto) {
-        Penalite penalite = this.penaliteRepository.findById(typePenalite)
-                .orElseThrow(() -> new ResourceNotFoundException("Penalite", "typePenalite ", typePenalite));
+    public PenaliteDto update(Long id, PenaliteDto penaliteDto) {
+        Penalite penalite = this.penaliteRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Penalite", "typePenalite ", id));
         penalite.setDuree(penaliteDto.getDuree());
         Penalite penaliteUpdate = this.penaliteRepository.save(penalite);
         return this.entityMapper.penaliteToPenaliteDto(penaliteUpdate);
     }
 
     @Override
-    public void delete(String typePenalite) {
-        Penalite penalite = this.penaliteRepository.findById(typePenalite)
-                .orElseThrow(() -> new ResourceNotFoundException("AgrementObtenu", "typePenalite", typePenalite));
+    public void delete(Long id) {
+        Penalite penalite = this.penaliteRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Penalite", "typePenalite", id));
         this.penaliteRepository.delete(penalite);
 
     }

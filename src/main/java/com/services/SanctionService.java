@@ -8,12 +8,12 @@ public interface SanctionService {
 	
 	List<SanctionDto> findAll();
 	
-	SanctionDto findById(String code);
+	SanctionDto findById(Long id);
 	
 	SanctionDto save(SanctionDto sanctionDto);
 	
-	SanctionDto update(String code, SanctionDto sanctionDto);
+	SanctionDto update(Long id, SanctionDto sanctionDto);
 	
-	void delete(String code);
+	void delete(Long id);
 
 }

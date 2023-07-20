@@ -12,7 +12,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/FraisCycle")
+@RequestMapping("/fraisCycle")
 @AllArgsConstructor
 public class FraisCycleController {
 
@@ -25,22 +25,23 @@ public class FraisCycleController {
     {
         return fraisCycleService.findAll();
     }
-    @PostMapping("/FraisCycleSave")
+    @PostMapping("/fraisCycleSave")
     @ResponseBody
     public FraisCycleDto save(@RequestBody FraisCycleDto fraisCycleDto)
     {
         return fraisCycleService.save(fraisCycleDto);
     }
-    @PutMapping("/update/{codefraisCycle}")
+    @PutMapping("/updatefraisCycle/{id}")
     @ResponseBody
-    public FraisCycleDto update(@PathVariable Integer code, @RequestBody FraisCycleDto fraisCycleDto){
-        return fraisCycleService.update(code, fraisCycleDto);
-    }
-    @DeleteMapping("supprimerfraisCycle/{codefraisCycle}")
-    @ResponseBody
-    public void delete(@PathVariable Integer code)
+    public FraisCycleDto update(@PathVariable Long id, @RequestBody FraisCycleDto fraisCycleDto)
     {
-        fraisCycleService.delete(code);
+        return fraisCycleService.update(id, fraisCycleDto);
+    }
+    @DeleteMapping("supprimerfraisCycle/{id}")
+    @ResponseBody
+    public void delete(@PathVariable Long id)
+    {
+        fraisCycleService.delete(id);
     }
 
 }
