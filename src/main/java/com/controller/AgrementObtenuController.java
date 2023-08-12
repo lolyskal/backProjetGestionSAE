@@ -21,7 +21,8 @@ public class AgrementObtenuController {
 
     @GetMapping("/agrementObtenus")
     @ResponseBody
-    public List<AgrementObtenuDto> findAll(){
+    public List<AgrementObtenuDto> findAll()
+    {
         return agrementObtenuService.findAll();
     }
     @PostMapping("/agrementObtenuSave")

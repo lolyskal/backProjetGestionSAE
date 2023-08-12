@@ -21,6 +21,7 @@ public class AbstractEntity implements Serializable {
 @Id
 @Column(name = "id")
     private Long id;
+
 	@CreatedDate
     @Column(name = "creationDate", nullable = false , updatable = false)
     private Instant creationDate;
